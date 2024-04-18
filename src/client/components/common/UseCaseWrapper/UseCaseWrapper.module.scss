@@ -1,0 +1,368 @@
+h1.title {
+  font-family: 'Inter';
+  font-size: rem(48px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  margin-bottom: rem(24px);
+  margin-top: rem(96px);
+
+  @include media('<=tabletWide') {
+    margin-top: rem(48px);
+  }
+}
+
+.description {
+  max-width: rem(640px);
+  margin-bottom: rem(24px);
+
+  a {
+    color: v('orange-gradient');
+    text-decoration: underline;
+  }
+}
+
+.externalLinks {
+  display: flex;
+  gap: 24px;
+
+  @include media('<=phoneLandscape') {
+    flex-direction: column;
+  }
+
+  a {
+    vertical-align: baseline;
+    font-family: JetBrains Mono;
+    font-size: rem(16px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.16px;
+    color: v('orange-gradient');
+
+    img {
+      display: inline;
+      vertical-align: baseline;
+      margin-left: rem(5px);
+    }
+  }
+}
+
+.howToUse {
+  background-color: v('soft-orange-background');
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: rem(16px);
+  padding: rem(32px);
+  margin-top: rem(64px);
+  margin-bottom: rem(64px);
+  border-radius: rem(12px);
+  box-shadow: 0px 2px 4px 0px rgba(208, 208, 208, 0.15);
+  overflow: hidden;
+
+  @include dashedOrangeBorder(12);
+
+  @include media('<=tabletWide') {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: rem(48px);
+    margin-bottom: rem(32px);
+    padding: rem(24px) rem(16px);
+  }
+
+  h2 {
+    color: v('dark-black');
+    font-family: Inter;
+    font-size: rem(20px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    margin-bottom: rem(20px);
+  }
+
+  ol {
+    list-style-type: none;
+    counter-reset: my-counter;
+  }
+
+  ol li:before {
+    content: counter(my-counter);
+    color: v('orange-gradient');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid v('gray-box-stroke');
+    border-radius: 50%;
+    text-align: center;
+    background-color: white;
+
+    font-family: Inter;
+    font-size: rem(12px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 155%;
+
+    width: rem(26px);
+    min-width: rem(26px);
+    height: rem(26px);
+    min-height: rem(26px);
+    margin-right: rem(12px);
+  }
+
+  ol li {
+    counter-increment: my-counter;
+    line-height: 160%;
+    margin-bottom: rem(10px);
+    // The marker and li text are two columns
+    display: flex;
+
+    code {
+      white-space: nowrap;
+    }
+
+    a {
+      text-decoration: underline;
+      color: v('orange-gradient');
+    }
+  }
+
+  .resourcesButton {
+    background-color: white;
+    font-weight: 400;
+    overflow: hidden;
+
+    span {
+      display: flex;
+      gap: rem(12px);
+      align-items: center;
+    }
+
+    @include media('<=tabletWide') {
+      display: none;
+    }
+  }
+}
+
+.note {
+  display: flex;
+  gap: rem(12px);
+  border-top: 0.5px solid v('orange-gradient');
+  padding-top: rem(24px);
+  padding-bottom: rem(16px);
+  margin-top: rem(32px);
+
+  @include media('<=phoneLandscape') {
+    flex-direction: column;
+  }
+
+  :first-child {
+    font-size: rem(12px);
+    line-height: 145%;
+    letter-spacing: 0.36px;
+    color: v('orange-gradient');
+    padding-top: 2px;
+  }
+
+  :last-child {
+    color: v('dark-gray');
+    font-size: rem(14px);
+    letter-spacing: 0.42px;
+
+    a {
+      color: v('orange-gradient');
+      text-decoration: underline;
+    }
+  }
+}
+
+.contentWrapper {
+  position: relative;
+  padding: 0px rem(20px);
+
+  .backgroundRectangle {
+    background-color: v('gray-background');
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: rem(64px);
+  }
+
+  .browserBar {
+    background-color: v('light-gray-background');
+    padding: rem(12px) rem(18px);
+    border-bottom: 1px solid v('gray-box-stroke');
+    display: flex;
+    gap: rem(8px);
+
+    div {
+      border-radius: 50%;
+      background-color: v('gray-box-stroke');
+      height: rem(12px);
+      width: rem(12px);
+    }
+  }
+
+  .browserContent {
+    padding: rem(64px) rem(56px);
+    margin: 0px auto;
+    border-radius: rem(12px);
+
+    @include media('<=tabletWide') {
+      padding: rem(24px) rem(16px) rem(32px) rem(16px);
+    }
+  }
+
+  .content {
+    border: 1px solid v('gray-box-stroke');
+    border-radius: rem(12px);
+    position: relative;
+    margin: rem(96px) auto 0 auto;
+    z-index: 1;
+    background: white;
+    max-width: 1248px;
+    padding: rem(0px);
+    overflow: auto;
+    @include shadowMedium();
+
+    @include media('<=tabletWide') {
+      margin: rem(32px) auto 0 auto;
+    }
+  }
+}
+
+.learnMorePlaceholder {
+  background-color: v('gray-background');
+  height: rem(96px);
+}
+
+.learnMore {
+  background-color: v('gray-background');
+  padding-top: rem(148px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(32px);
+  padding-bottom: rem(200px);
+
+  @include media('<=tabletWide') {
+    padding-top: rem(64px);
+    padding-bottom: rem(80px);
+  }
+
+  .learnMoreTitle {
+    color: v(dark-black);
+    font-family: Inter;
+    font-size: rem(28px);
+    font-weight: 600;
+    line-height: 130%;
+  }
+
+  .cardsContainer {
+    display: grid;
+    gap: rem(20px);
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, 300px);
+  }
+
+  .card {
+    background-color: white;
+    color: v('dark-black');
+    padding: rem(24px) rem(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(8px);
+    align-self: stretch;
+    border-radius: rem(6px);
+    border: 1px solid v('gray-box-stroke');
+    min-width: rem(300px);
+    @include transition((box-shadow, border));
+
+    &:hover {
+      @include shadowLarge;
+      border: 1px solid white;
+    }
+
+    .type {
+      font-size: rem(12px);
+      font-weight: 400;
+      line-height: 100%;
+      letter-spacing: 0.36px;
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-size: rem(20px);
+      font-weight: 600;
+      line-height: 140%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.floatyResetButton {
+  position: fixed;
+  top: 40vh;
+  right: 32px;
+  border-radius: 48px;
+
+  display: flex;
+  padding: 24px;
+  justify-content: center;
+  align-items: center;
+  background-color: v('white');
+  z-index: 2;
+  cursor: pointer;
+
+  z-index: v('z-floaty-reset-button');
+
+  @include shadowLarge();
+
+  img {
+    height: rem(24px);
+    width: rem(24px);
+    transition: scale 0.2s ease;
+  }
+
+  .resetTitle {
+    color: v('orange-gradient');
+    font-size: rem(16px);
+    font-weight: 500;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.2s ease;
+  }
+
+  &:hover {
+    img {
+      scale: 1.1;
+    }
+
+    .resetTitle {
+      // width: auto does not work with transitions well, but you can hardcode the right width for the specific static word you want
+      width: rem(68px);
+      padding-right: rem(12px);
+    }
+  }
+
+  &.loading {
+    img {
+      animation: spin 1s infinite linear;
+    }
+  }
+
+  &.pulse {
+    animation: pulse 0.8s infinite linear;
+    border: 1px solid v('orange-gradient');
+    background-color: v('soft-orange-background');
+  }
+
+  @include media('<=phoneLandscape') {
+    padding: rem(16px);
+    right: rem(16px);
+  }
+}

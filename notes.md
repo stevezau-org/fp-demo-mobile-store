@@ -1,0 +1,1 @@
+ docker run --rm -p 4000:3000 -e "MAX_CONCURRENT_SESSIONS=10" browserless/chrome:latest
